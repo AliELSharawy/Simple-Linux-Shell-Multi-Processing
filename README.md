@@ -102,7 +102,6 @@ function shell()
 
     while command_is_not_exit
 
-
 function execute_shell_bultin()
     swirch(command_type):
         case cd:
