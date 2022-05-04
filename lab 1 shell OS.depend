@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1648149178 source:/home/alielsharawy/Desktop/OS/OS labs/lab 1 shell OS/lab 1 shell OS/main.c
+	<stdio.h>
+	<string.h>
+	<signal.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/signal.h>
+	<sys/resource.h>
+
