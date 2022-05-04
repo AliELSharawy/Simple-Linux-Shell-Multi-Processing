@@ -49,11 +49,8 @@ Your shell must support the following commands:
         * export y="Hello world"
         * echo "$y" => Hello world
 
-| ![System Monitor](sysmonitor.png) |
-|:--:|
-| *Figure 1 Firefox, Calculator and Gedit are child processes to the SimpleShell process** |
 
-## 3. Problem Description
+## Problem Description
 
 1. Your command shell should take the user command and its parameter(s), i.e., “ls” and “–l” in this example, and convert them into C strings. (Recall that a C string terminates with a null string, i.e., \0.)
 2. The command shell should create a child process via **fork()**.
