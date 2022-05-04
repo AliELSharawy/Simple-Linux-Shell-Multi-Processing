@@ -1,14 +1,9 @@
 # Simple Shell (Multi-Processing)
 
-![Shell](shell.png)
+[lab 1 report OS.pdf](https://github.com/AliELSharawy/Simple-Linux-Shell-Multi-Processing/files/8627407/lab.1.report.OS.pdf)
 
-## 1. Objectives
 
-1. Familiarity with system calls in Unix environment.
-2. Introduction to processes and multi-processing.
-3. Introduction to signal handling in Unix environment.
-
-## 2. Problem Statement
+## Problem Statement
 
 It is required to implement a Unix shell program. A shell is simply a program that conveniently allows you to run other programs. Read up on your favorite shell to see what it does.
 
@@ -127,89 +122,3 @@ function execute_command()
     else if parent and foreground:
         waitpid(child)
 ```
-
-## Notes
-
-* You should register the SIGCHLD signal at the beginning of your main as shown in [this example](https://docs.oracle.com/cd/E19455-01/806-4750/signals-7/index.html), so when a child dies, the parent process receives SIGCHLD (or SIGCLD) signal.
-* To see the set of all signals supported on your system, type, kill –l.
-* Use a process monitor package to monitor your processes. Provide a screenshot for your shell parent process and some child processes spawned as background processes. Suggested packages: KSysguard or Gnome-System-Monitor.
-* Reading [this article about waitpid(pid_t pid, int *statusPtr, int options)](https://support.sas.com/documentation/onlinedoc/sasc/doc/lr2/waitpid.htm) is a must.
-
-## 4. Deliverables
-
-* Complete C source code, commented thoroughly and clearly.
-* A report that includes:
-  * A description of the overall organization of your code and the major functions.
-  * Sample runs.
-  * screenshots for the processes hierarchy in KSysguard (or any similar package) during the execution of your shell program.
-* A 3-min (tolerance of 30 seconds only) video that shows the output of the next test case.
-
-## Test Case
-
-**Open** your shell.
-
-**Execute** the following commands.
-
-```Shell
-ls
-mkdir test
-ls
-ls -a -l -h
-export x="-a -l -h"
-ls $x
-```
-
-**Execute** the following commands in the same session, but **show** that shell is stuck and cannot execute other commands while firefox is open.
-
-**Note:** In order for this test to work correctly, firefox has to be closed before executing this command. Also, if firefox is not available, you may use 'gedit' instead.
-
-```Shell
-firefox
-```
-
-**Close** the firefox.
-
-**Open** the log file, show us its content, then close it.
-
-**Execute** the following commands in the same session, but **show** that shell is not stuck and can execute other commands while firefox is open.
-
-```Shell
-firefox &
-```
-
-**Open** the log file, show us its content, then close it.
-
-**Open** the system monitor and expand all running processes under your shell process.
-
-**Open** the system monitor and **Search** for all firefox processes.
-
-**Execute** the following command in the same session, it should show us an error message.
-
-```Shell
-heyy
-```
-
-**Execute** the following command in the same session, it should close the shell from the first time you execute it.
-
-```Shell
-exit
-```
-
-That's it!
-
-## Lab requirements
-
-* Students will be working individually.
-* You can only use C programming language.
-* Use Ubuntu operating system for development.
-* Submit the deliverables using the submission form provided in your class.
-* If the submitted code cannot replicate the same video scenario, then this will be considered cheating and the "cheating and plagiarism" policy will be applied.
-
-## Readings & Resources
-
-* [What is a zombie process in Linux?](https://www.tutorialspoint.com/what-is-zombie-process-in-linux)
-* [Process states & dealing with zombie processes](https://idea.popcount.org/2012-12-11-linux-process-states/)
-* [Linux Signals](https://devopedia.org/linux-signals)
-* [Important notes on wait() and repeaing zombies](https://man7.org/linux/man-pages/man2/wait.2.html#NOTES)
-* [sigaction(2) — Linux manual page](https://man7.org/linux/man-pages/man2/sigaction.2.html)
-* [signal(2) — Linux manual page](https://man7.org/linux/man-pages/man2/signal.2.html)
