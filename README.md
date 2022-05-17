@@ -1,8 +1,5 @@
 # Simple Shell (Multi-Processing)
 
-[lab 1 report OS.pdf](https://github.com/AliELSharawy/Simple-Linux-Shell-Multi-Processing/files/8627407/lab.1.report.OS.pdf)
-
-
 ## Problem Statement
 
 It is required to implement a Unix shell program. A shell is simply a program that conveniently allows you to run other programs. Read up on your favorite shell to see what it does.
