@@ -81,3 +81,14 @@ You should keep a log file (basic text file) for your shell program such that wh
 - For non-built command we check for & sign at end of command to set background flag in order not to wait child.
 - Then we define array of char pointers to pass execvp parameters.
 
+## Sample Runs
+
+![{9B51DE4C-B365-44E7-A537-C4B7FCD437B5} png](https://user-images.githubusercontent.com/95590176/191992799-ae2277a0-fc44-4dab-96d2-33f7f05f392a.jpg)
+
+![{80CB6069-7B2D-435C-AB25-13F1A754907E} png](https://user-images.githubusercontent.com/95590176/191992861-2c1259b5-a60e-401a-bbb0-7218e74b46fa.jpg)
+
+![{6586D796-BE92-4CC4-B556-737F0ADB9362} png](https://user-images.githubusercontent.com/95590176/191992908-4a641566-f98d-4045-86cf-042ec5bc6f2c.jpg)
+
+![{38334419-4354-4C5C-8CEA-0E87E7074CD1} png](https://user-images.githubusercontent.com/95590176/191992932-102a4b6f-bf5d-4919-bec0-1dff3295a896.jpg)
+
+![{E02DBD92-0624-4101-BB01-83ED1B1C3C1B} png](https://user-images.githubusercontent.com/95590176/191993113-47835e9e-ec99-4ba6-9806-eaf305d37e42.jpg)
