@@ -49,7 +49,7 @@ Your shell must support the following commands:
 
 ## Problem Description
 
-1. Your command shell should take the user command and its parameter(s), i.e., “ls” and “–l” in this example, and convert them into C strings. (Recall that a C string terminates with a null string, i.e., \0.)
+1. The command shell should take the user command and its parameter(s), i.e., “ls” and “–l” in this example, and convert them into C strings. (Recall that a C string terminates with a null string, i.e., \0.)
 2. The command shell should create a child process via **fork()**.
 3. The child process passes the C strings—the command and parameter(s)—to **execvp()**.
 4. The child exits if **execvp()** returns error.
@@ -63,55 +63,21 @@ In case a user wants to execute the command in background (i.e. as a background 
 firefox &
 ```
 
-In this case, your command shell should not wait for the child by skipping the Step 5.
+In this case, The command shell should not wait for the child by skipping the Step 5.
 
 You should keep a log file (basic text file) for your shell program such that whenever a child process terminates, the shell program appends the line “Child process was terminated” to the log file. To do this, you have to write a signal handler that appends the line to the log file when the SIGCHLD signal is received.
 
-## Pseudocode
+## Description of major functions
 
-The shell program should be written as following pseudocode:
+- In main function we define SIGCHLD signal to interrupt when background child terminate as parent will not wait for it so we handle this interrupt in handle child exit and write in the console and login text file.
+- We set environment (current directory) to the program file location.
+- Then we loop and scan the command and parse it according to spaces and if we find “quote we parse the whole string till “quote found as 1 string.
+- We count number of words in command.
+- After parsing we check first word of program if exit we exit the program else we call shell function and loop to scan another command.
+- In shell function we check for first word of command so if we found echo or export or cd we call execute built in command function else we call execute command.
+- For echo command we check for $ sign to search in variable array to get index of value location in value array so we get its value.
+- For export command we check if variable exist to update its value else we insert new variable to array and add its value in value array at arr index variable which point to available end position in array.
+- For cd we call chdir to change directory.
+- For non-built command we check for & sign at end of command to set background flag in order not to wait child.
+- Then we define array of char pointers to pass execvp parameters.
 
-```Pseudocode
-function parent_main()
-    register_child_signal(on_child_exit())
-    setup_environment()
-    shell()
-
-
-function on_child_exit()
-    reap_child_zombie()
-    write_to_log_file("Child terminated")
-
-
-function setup_environment()
-    cd(Current_Working_Directory)
-
-
-function shell()
-    do
-        parse_input(read_input())
-        evaluate_expression():
-        switch(input_type):
-            case shell_builtin:
-                execute_shell_bultin();
-            case executable_or_error:
-                execute_command():
-
-    while command_is_not_exit
-
-function execute_shell_bultin()
-    swirch(command_type):
-        case cd:
-        case echo:
-        case export:
-
-
-function execute_command()
-    child_id = fork()
-    if child:
-        execvp(command parsed)
-        print("Error)
-        exit()
-    else if parent and foreground:
-        waitpid(child)
-```
